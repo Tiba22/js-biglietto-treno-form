@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Biglietto Treno</title>
+    <style media="screen">
+      body {
+        background-color: #ccc;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1 style="margin-top: 150px;"id="congratz"></h1>
+    <h1 id="biglietto"></h1>
+
+
+
+    <script type="text/javascript">
+
+    var nome = prompt('Inserisca qui il suo nome')
+    var kilometri = prompt('Quanti kilometri deve percorrere?')
+    var etàUtente = prompt('Quanti anni ha?')
+    var destinazione = prompt('Dove deve andare?')
+
+    var giovane = etàUtente < 18;
+    var anziano = etàUtente > 65;
+
+    var prezzo = (kilometri * 0.21);
+    var prezzoGiovane = (prezzo * 0.80);
+    var prezzoAnziano = (prezzo * 0.60);
+
+    var prezzoGiovaneFix = prezzoGiovane.toFixed(2);
+    var prezzoAnzianoFix = prezzoAnziano.toFixed(2);
+
+    console.log(prezzo, prezzoGiovaneFix, prezzoAnzianoFix);
+
+    document.getElementById('congratz').innerHTML = 'Congratulazioni ' + nome + '!';
+
+    if (giovane) {
+      document.getElementById('biglietto').innerHTML = 'Il suo viaggio verso ' + destinazione + ' le verrà a costare: ' + prezzoGiovaneFix + '€';
+    }
+
+    else if (anziano) {
+      document.getElementById('biglietto').innerHTML = 'Il suo viaggio verso ' + destinazione + ' le verrà a costare: ' + prezzoAnzianoFix + '€';
+    }
+
+    else if (prezzo) {
+      document.getElementById('biglietto').innerHTML = 'Il suo viaggio verso ' + destinazione + ' le verrà a costare: ' + prezzo + '€';
+    }
+
+    </script>
+  </body>
+</html>
